@@ -1,5 +1,6 @@
 #include "colorrectdump/lib.h"
 #include "colorrectdump/png_util.h"
+#include "colorrectdump/common.h"
 
 CRDResult crd_process_and_find_colorrect(const char* image_filepath, int* error)
 {
@@ -9,6 +10,17 @@ CRDResult crd_process_and_find_colorrect(const char* image_filepath, int* error)
   int height = 0;
   // TODO: Currently, no matter the input .png format, it gonna be converted into RGBA png file format
   png_bytepp image_data = crd_read_png_file(image_filepath, &rowbytes, &width, &height);
+
+  // check error
+  if (image_data == NULL)
+  {
+    CRD_ELOG("result image data from reading %s is NULL\n", image_filepath);
+    // set error code back
+    if (error != NULL)
+    {
+      *error = 1;
+    }
+  }
 
   CRDResult result = { -1, -1, -1, -1 };
 
