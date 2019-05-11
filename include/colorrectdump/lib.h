@@ -14,10 +14,10 @@ extern "C" {
  * Structure to hold result information back from processing.
  */
 typedef struct CRDResult_s {
-  int offset_x;
-  int offset_y;
-  int width;
-  int height;
+  int x_min;
+  int y_min;
+  int x_max;
+  int y_max;
 } CRDResult;
 
 /**

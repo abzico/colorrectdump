@@ -54,18 +54,21 @@ CRDResult crd_process_and_find_colorrect(const char* image_filepath, int* error)
   }
 
   // compute the result
-  result.offset_x = x_min - DEFAULT_MARGIN;
-  if (result.offset_x < 0)
-    result.offset_x = 0;
-  result.offset_y = y_min - DEFAULT_MARGIN;
-  if (result.offset_y < 0)
-    result.offset_y = 0;
-  result.width = x_max - x_min + DEFAULT_MARGIN*2;
-  if (result.width > width)
-    result.width = width;
-  result.height = y_max - y_min + DEFAULT_MARGIN*2;
-  if (result.height > height)
-    result.height = height;
+  result.x_min = x_min - DEFAULT_MARGIN;
+  if (result.x_min < 0)
+    result.x_min = 0;
+
+  result.y_min = y_min - DEFAULT_MARGIN;
+  if (result.y_min < 0)
+    result.y_min = 0;
+
+  result.x_max = x_max + DEFAULT_MARGIN;
+  if (result.x_max > width)
+    result.x_max = width;
+
+  result.y_max = y_max + DEFAULT_MARGIN;
+  if (result.y_max > height)
+    result.y_max = height;
 
   return result;
 }
