@@ -19,7 +19,20 @@ Example:
 
 `colorrectdump /path/to/my/image.png`
 
-it will print out result with 4 numbers onto starndard output in format `offset-x offset-y width height` in which offset x/y is the top left corner of the rectangular area. You can further use batch/bash script to do batch process with this output later on.
+it will print out result with 4 numbers onto starndard output in format `x-min y-min x-max y-max` in which `x-min` and `y-min` are the top left corner of the rectangular area. You can further use batch/bash script to do batch process from this output on top.
+
+Example output:
+
+`114 144 269 227`
+
+this means
+
+* `x-min` is 114
+* `y-min` is 144
+* `x-max` is 269
+* `y-max` is 227
+
+you can further calculate width/height from `x-max`-`x-min`, and `y-max`-`y-min` respectively.
 
 # NOTE
 
