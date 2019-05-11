@@ -36,12 +36,11 @@ int main(int argc, char** argv)
       if (error > 0)
       {
         // error actually happens
-        // TODO: Do any cleanup here
         crd_exitnow(1);
       }
 
       // print result out
-      printf("%d %d %d %d", result.offset_x, result.offset_y, result.width, result.height);
+      printf("%d %d %d %d", result.x_min, result.y_min, result.x_max, result.y_max);
     }
   }
 
